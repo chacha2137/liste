@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ma Liste de Noël 🎄</title>
+<style>
+  body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#e60026, #b3001b);
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    margin: 40px 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.2em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th {
+    padding: 50px 0;
+    text-align: center;
+  }
+  td {
+    padding: 12px;
+    padding-left: 50px;
+    text-align: left;
+  }
+  img {
+    height: 100px;
+    border-radius: 6px;
+  }
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    img {
+      width: 50px;
+    }
+    th:nth-child(1), td:nth-child(1) {
+      width: 30%;
+    }
+    th:nth-child(2), td:nth-child(2) {
+      font-size: 0.9em;
+    }
+  }
+  /* Anim zoom image */
+  td img {
+    transition: transform 0.3s;
+  }
+  td img:hover {
+    transform: scale(1.15) rotate(-2deg);
+  }
+
+  /* Effet scintillant lien */
+  @keyframes sparkle {
+    0%,100% { color: #fff; }
+    50% { color: #ffd700; }
+  }
+  td a:hover {
+    animation: sparkle 1s infinite;
+  }
+
+  /* Apparition des cadeaux */
+  tr {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>🎁 Ma liste de Noël 🎁</h1>
+  <table class="gift-table"> 
+    <tr>
+      <th>Image</th>
+      <th>Cadeau</th>
+    </tr>
+    <tr>
+      <td><img src="../img/rolife.png" alt="Maquette"></td>
+      <td><a href="https://www.amazon.fr/Rolife-Restaurant-D%C3%A9coration-Int%C3%A9rieure-danniversaire/dp/B0DJ27S9GZ/ref=sxin_15_pa_sp_search_thematic_sspa?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&cv_ct_cx=rolife&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-86ee67e3-2ea6-4725-8419-71cfe38eb657-spons&aref=uq5SLa0E7i&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" target="_blank">Tipsy Restaurant</a></td>
+    </tr>
+    <tr>
+      <td><img src="../img/terrier.png" alt="Lego Terrier"></td>
+      <td><a href="https://www.lego.com/fr-fr/product/the-burrow-collectors-edition-76437" target="_blank">Le Terrier – Édition Collector</a></td>
+    </tr>
+    <tr>
+      <td><img src="../img/boutiques.png" alt="Lego boutiques"></td>
+      <td><a href="https://www.lego.com/fr-fr/product/quality-quidditch-supplies-ice-cream-parlour-76452" target="_blank">Magasin d'accessoires de Quidditch™ et marchand de glaces</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://via.placeholder.com/80" alt="Lego Star Wars"></td>
+      <td><a href="https://www.lego.com/">Lego Star Wars</a></td>
+    </tr>
+  </table>
+</div>
+
+<script>
+$(document).ready(function () {
+  // Apparition des cadeaux
+  $('tr').each(function(i){
+    $(this).delay(200 * i).animate({opacity: 1, translateY: 0}, 600);
+  });
+});
+</script></body>
+</html>
